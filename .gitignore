@@ -1,0 +1,26 @@
+# IDE Folders
+/.idea/*
+/.vscode/*
+
+# Python Files
+*.pyc
+
+# SQL Files
+*.db
+*.sqlite3
+*.sql
+
+# Test's
+/htmlcov/*
+.coverage/
+.coverage*
+coverage.xml
+pylint.txt
+
+# SonarQube
+.scannerwork
+
+# Others
+/venv/*
+/dist/*
+/django_admin_search.egg-info/*
