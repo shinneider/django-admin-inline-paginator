@@ -23,4 +23,4 @@ pylint.txt
 # Others
 /venv/*
 /dist/*
-/django_admin_search.egg-info/*
+/django_admin_inline_paginator.egg-info/*

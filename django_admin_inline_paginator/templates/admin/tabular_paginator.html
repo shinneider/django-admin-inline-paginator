@@ -1,34 +1,7 @@
 {% load i18n static %}
 
-<style>
-.btn-page {
-  border: none;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
+<link rel="stylesheet" type="text/css" href="{% static 'django_admin_inline_paginator/paginator.css' %}">
 
-.page-selected {
-  /*background-color: #417690;*/
-  background-color: #FFFFFF;
-  color: #666;
-}
-
-.page-available {
-  background-color: #008CBA;
-  color: white !important;
-}
-
-.results {
-  background-color: #FFFFFF;
-  color: #666;
-}
-
-</style>
 <div>
    {% with inline_admin_formset.formset.page as page_obj %}
     <p class="paginator">

@@ -1,0 +1,25 @@
+.btn-page {
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.page-selected {
+  background-color: #ffffff;
+  color: #666;
+}
+
+.page-available {
+  background-color: #008cba;
+  color: white !important;
+}
+
+.results {
+  background-color: #ffffff;
+  color: #666;
+}
