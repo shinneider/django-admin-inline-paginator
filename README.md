@@ -43,4 +43,3 @@ If you use or like the project, click `Star` and `Watch` to generate metrics and
 # Images:
 
 ![image](https://user-images.githubusercontent.com/30196992/98023167-706ca880-1dfe-11eb-89fe-c056741f0d5b.png)
-![image](https://user-images.githubusercontent.com/30196992/98023056-4c10cc00-1dfe-11eb-8d53-a4307d131628.png)
