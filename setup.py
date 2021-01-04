@@ -26,7 +26,7 @@ setup(
     long_description_content_type='text/markdown',
     author='Shinneider Libanio da Silva',
     author_email='shinneider-libanio@hotmail.com',
-    url='https://github.com/shinneider/django_admin_inline_paginator',
+    url='https://github.com/shinneider/django-admin-inline-paginator',
     license='MIT',
     packages=find_packages(exclude=['tests*']),
     include_package_data=True,
