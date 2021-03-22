@@ -24,5 +24,6 @@ class State(Model):
         return f'{self.name}'
 
     class Meta:
+        ordering = ('name', )
         verbose_name = 'State'
         verbose_name_plural = 'States'

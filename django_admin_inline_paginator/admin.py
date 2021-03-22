@@ -1,6 +1,7 @@
+from django.conf import settings
 from django.contrib.admin import TabularInline
 from django.contrib.admin.views.main import ChangeList
-from django.core.paginator import EmptyPage, InvalidPage, Paginator
+from django.core.paginator import Paginator
 
 
 class InlineChangeList(object):
@@ -56,7 +57,11 @@ class PaginationFormSetBase(object):
 
 
 class TabularInlinePaginated(TabularInline):
-    template = 'admin/tabular_paginated.html'
+    # TODO: improv this (search for compile template method)
+    if 'grappelli' in settings.INSTALLED_APPS:
+        template = 'admin_inline/graphelli/tabular_inline.html'
+    else:
+        template = 'admin_inline/tabular_inline.html'
     per_page = 20
     extra = 0
     can_delete = False

@@ -38,7 +38,7 @@
       {% if page_obj.has_next %}
         <a href="?page={{ page_obj.next_page_number }}">{% trans 'next' %}</a>
       {% endif %}
-      <span class='btn-page results'>{{ page_obj.paginator.count }} Results</span>
+      <span class='btn-page results'>{{ page_obj.paginator.count }} {% trans 'results'|capfirst %}</span>
     </p>
   {% endwith %}
 </div> 

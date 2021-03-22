@@ -1,0 +1,6 @@
+{% extends 'templates/admin/edit_inline/tabular.html' %}
+
+{% block tabular_content %}
+    {{ block.super }}
+    {% include 'admin_inline/graphelli/tabular_paginator.html' %}
+{% endblock %}

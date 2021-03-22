@@ -40,6 +40,10 @@ If you use or like the project, click `Star` and `Watch` to generate metrics and
        model = YourModel
    ```
 
+# Compatibility:
+works with `Django templates` and [`Django Graphelli`](https://github.com/sehmaschine/django-grappelli)
+
+
 # Images:
 
 ![image](https://user-images.githubusercontent.com/30196992/98023167-706ca880-1dfe-11eb-89fe-c056741f0d5b.png)

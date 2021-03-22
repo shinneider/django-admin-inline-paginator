@@ -1,0 +1,48 @@
+{% load i18n static %}
+
+<div class="grp-module">
+  <div class="grp-row">
+    {% spaceless %}
+      {% with inline_admin_formset.formset.page as page_obj %}
+      <nav class="grp-pagination">
+        <header style="display:none"><h1>{% trans 'pagination'|capfirst %}</h1></header>
+        <ul>
+          {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}">{% trans 'previous' %}</a></li>
+          {% endif %}
+          {% if page_obj.number|add:"-5" > 0 %}
+            <li><a class="btn-page page-available" href="?page=0">1</a></li>
+          {% endif %}
+          {% if page_obj.number|add:"-5" > 1 %}
+            <li class="grp-separator"><span>...</span></li>
+          {% endif %}
+          {% for page_num in page_obj.paginator.page_range %}
+            {% if page_obj.number == page_num %}
+              <li><span class="btn-page page-selected">{{ page_num }}</span></li>
+            {% else %}
+              {% if page_num > page_obj.number|add:"-5" and page_num < page_obj.number|add:"5" %}
+                <li><a class="btn-page page-available" href="?page={{ page_num }}">{{ page_num }}</a></li>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+
+          {% if page_obj.number|add:"5" < page_obj.paginator.num_pages %}
+            <li class="grp-separator"><span>...</span></li>
+          {% endif %}
+
+          {% if page_obj.number|add:"4" < page_obj.paginator.num_pages %}
+            <li><a class="btn-page page-available" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a></li>
+          {% endif %}
+
+          {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}">{% trans 'next' %}</a></li>
+          {% endif %}
+          <li class="grp-results">
+            <span class='btn-page results'>{{ page_obj.paginator.count }} {% trans 'results'|capfirst %}</span>
+          </li>
+        </ul>
+      </nav>
+      {% endwith %}
+    {% endspaceless %}
+  </div>
+</div>
