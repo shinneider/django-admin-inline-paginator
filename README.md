@@ -1,4 +1,8 @@
-# Django Admin Inline Paginator
+Django Admin Inline Paginator
+===================
+[![Downloads](https://pepy.tech/badge/django-admin-inline-paginator)](https://pepy.tech/project/django-admin-inline-paginator)
+[![Downloads](https://pepy.tech/badge/django-admin-inline-paginator/month)](https://pepy.tech/project/django-admin-inline-paginator/month)
+[![Downloads](https://pepy.tech/badge/django-admin-inline-paginator/week)](https://pepy.tech/project/django-admin-inline-paginator/week)
 
 The "Django Admin Inline Paginator" is simple way to paginate your inline in django admin
 
