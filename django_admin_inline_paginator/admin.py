@@ -23,9 +23,10 @@ class PaginationFormSetBase(object):
     queryset = None
     request = None
     per_page = 20
+    pagination_key = 'page'
 
     def get_page_num(self) -> int:
-        page = self.request.GET.get('page', '1')
+        page = self.request.GET.get(self.pagination_key, '1')
         if page.isnumeric() and page > '0':
             return int(page)
 
@@ -56,6 +57,7 @@ class PaginationFormSetBase(object):
 
 
 class TabularInlinePaginated(TabularInline):
+    pagination_key = 'page'
     template = 'admin/tabular_paginated.html'
     per_page = 20
     extra = 0
@@ -65,7 +67,7 @@ class TabularInlinePaginated(TabularInline):
         formset_class = super().get_formset(request, obj, **kwargs)
 
         class PaginationFormSet(PaginationFormSetBase, formset_class):
-            pass
+            pagination_key = self.pagination_key
 
         PaginationFormSet.request = request
         PaginationFormSet.per_page = self.per_page
