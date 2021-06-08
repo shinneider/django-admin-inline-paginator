@@ -1,23 +1,24 @@
-from django.contrib.admin import register, ModelAdmin
+from django.contrib.admin import ModelAdmin, register
 from django_admin_inline_paginator.admin import TabularInlinePaginated
 
-from .models import Country, State
+from .models import Country, Region, State
 
 
 class StateAdminInline(TabularInlinePaginated):
     fields = ('name', 'active')
-    per_page = 1
+    per_page = 5
     model = State
 
 
-@register(State)
-class StateAdmin(ModelAdmin):
-    fields = ('country', 'name', 'active')
-    model = State
+class RegionAdminInline(TabularInlinePaginated):
+    fields = ('name', 'active')
+    per_page = 2
+    model = Region
+    pagination_key = 'rpage'
 
 
 @register(Country)
 class CountryAdmin(ModelAdmin):
     fields = ('name', 'active')
-    inlines = (StateAdminInline, )
+    inlines = (StateAdminInline, RegionAdminInline)
     model = Country

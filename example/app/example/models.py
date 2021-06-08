@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from django.db.models import BooleanField, CharField, ForeignKey
-from django.db.models import CASCADE, Model
+from django.db.models import (CASCADE, BooleanField, CharField, ForeignKey,
+                              Model)
 
 
 class Country(Model):
@@ -26,3 +26,16 @@ class State(Model):
     class Meta:
         verbose_name = 'State'
         verbose_name_plural = 'States'
+
+
+class Region(Model):
+    country = ForeignKey('example.Country', on_delete=CASCADE)
+    name = CharField(max_length=100)
+    active = BooleanField(default=True)
+
+    def __str__(self):
+        return f'{self.name}'
+
+    class Meta:
+        verbose_name = 'Region'
+        verbose_name_plural = 'Regions'

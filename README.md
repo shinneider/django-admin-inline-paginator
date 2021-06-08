@@ -1,8 +1,5 @@
 Django Admin Inline Paginator
-===================
-[![Downloads](https://pepy.tech/badge/django-admin-inline-paginator)](https://pepy.tech/project/django-admin-inline-paginator)
-[![Downloads](https://pepy.tech/badge/django-admin-inline-paginator/month)](https://pepy.tech/project/django-admin-inline-paginator/month)
-[![Downloads](https://pepy.tech/badge/django-admin-inline-paginator/week)](https://pepy.tech/project/django-admin-inline-paginator/week)
+=============================
 
 The "Django Admin Inline Paginator" is simple way to paginate your inline in django admin
 
@@ -10,7 +7,9 @@ If you use or like the project, click `Star` and `Watch` to generate metrics and
 
 # Install:
 
-    pip install django-admin-inline-paginator
+```
+pip install django-admin-inline-paginator
+```
 
 # Usage:
 
@@ -23,8 +22,7 @@ If you use or like the project, click `Star` and `Watch` to generate metrics and
        ...
    ]
    ```
-
-1. Create your model inline:
+2. Create your model inline:
 
    ```
    from django_admin_inline_paginator.admin import TabularInlinePaginated
@@ -34,15 +32,43 @@ If you use or like the project, click `Star` and `Watch` to generate metrics and
        per_page = 1
        model = ModelWithFK
    ```
+3. Create main model admin and use inline:
 
-1. Create main model admin and use inline:
-   ```
-   @register(YourModel)
-   class YourModelAdmin(ModelAdmin):
-       fields = (...)
-       inlines = (ModelWithFKAdminInline, )
-       model = YourModel
-   ```
+    ```
+    @register(YourModel)
+    class YourModelAdmin(ModelAdmin):
+        fields = (...)
+        inlines = (ModelWithFKAdminInline, )
+        model = YourModel
+    ```
+
+# Advanced Usage:
+
+1. Paginate multiples inlines:
+    
+    ```
+    class ModelWithFKInline(TabularInlinePaginated):
+    fields = ('name', 'active')
+    per_page = 2
+    model = ModelWithFK
+    pagination_key = 'page-model'  # make sure it's unique for page inline
+
+    class AnotherModelWithFKInline(TabularInlinePaginated):
+    fields = ('name', 'active')
+    per_page = 2
+    model = AnotherModelWithFK
+    pagination_key = 'page-another-model'  # make sure it's unique for page inline
+    ```
+
+2. Use previous inlines
+    
+    ```
+    @register(YourModel)
+    class YourModelAdmin(ModelAdmin):
+        fields = (...)
+        inlines = (ModelWithFKAdminInline, AnotherModelWithFKInline)
+        model = YourModel
+    ```
 
 # Images:
 

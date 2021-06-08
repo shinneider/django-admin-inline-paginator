@@ -1,0 +1,316 @@
+[
+{
+    "model": "example.country",
+    "pk": 1,
+    "fields": {
+        "name": "Brasil",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 1,
+    "fields": {
+        "country": 1,
+        "name": "Acre",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 2,
+    "fields": {
+        "country": 1,
+        "name": "Alagoas",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 3,
+    "fields": {
+        "country": 1,
+        "name": "Amap\u00e1",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 4,
+    "fields": {
+        "country": 1,
+        "name": "Amazonas",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 5,
+    "fields": {
+        "country": 1,
+        "name": "Bahia",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 6,
+    "fields": {
+        "country": 1,
+        "name": "Cear\u00e1",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 7,
+    "fields": {
+        "country": 1,
+        "name": "Distrito Federal",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 8,
+    "fields": {
+        "country": 1,
+        "name": "Esp\u00edrito Santo",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 9,
+    "fields": {
+        "country": 1,
+        "name": "Goi\u00e1s",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 10,
+    "fields": {
+        "country": 1,
+        "name": "Maranh\u00e3o",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 11,
+    "fields": {
+        "country": 1,
+        "name": "Mato Grosso",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 12,
+    "fields": {
+        "country": 1,
+        "name": "Mato Grosso do Sul",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 13,
+    "fields": {
+        "country": 1,
+        "name": "Minas Gerais",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 14,
+    "fields": {
+        "country": 1,
+        "name": "Par\u00e1",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 15,
+    "fields": {
+        "country": 1,
+        "name": "Para\u00edba",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 16,
+    "fields": {
+        "country": 1,
+        "name": "Paran\u00e1",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 17,
+    "fields": {
+        "country": 1,
+        "name": "Pernambuco",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 18,
+    "fields": {
+        "country": 1,
+        "name": "Piau\u00ed",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 19,
+    "fields": {
+        "country": 1,
+        "name": "Rio de Janeiro",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 20,
+    "fields": {
+        "country": 1,
+        "name": "Rio Grande do Norte",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 21,
+    "fields": {
+        "country": 1,
+        "name": "Rio Grande do Sul",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 22,
+    "fields": {
+        "country": 1,
+        "name": "Rond\u00f4nia",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 23,
+    "fields": {
+        "country": 1,
+        "name": "Roraima",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 24,
+    "fields": {
+        "country": 1,
+        "name": "Santa Catarina",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 25,
+    "fields": {
+        "country": 1,
+        "name": "S\u00e3o Paulo",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 26,
+    "fields": {
+        "country": 1,
+        "name": "Sergipe",
+        "active": true
+    }
+},
+{
+    "model": "example.state",
+    "pk": 27,
+    "fields": {
+        "country": 1,
+        "name": "Tocantins",
+        "active": true
+    }
+},
+{
+    "model": "example.region",
+    "pk": 1,
+    "fields": {
+        "country": 1,
+        "name": "Norte",
+        "active": true
+    }
+},
+{
+    "model": "example.region",
+    "pk": 2,
+    "fields": {
+        "country": 1,
+        "name": "Nordeste",
+        "active": true
+    }
+},
+{
+    "model": "example.region",
+    "pk": 3,
+    "fields": {
+        "country": 1,
+        "name": "Centro-Oeste",
+        "active": true
+    }
+},
+{
+    "model": "example.region",
+    "pk": 4,
+    "fields": {
+        "country": 1,
+        "name": "Sudeste",
+        "active": true
+    }
+},
+{
+    "model": "example.region",
+    "pk": 5,
+    "fields": {
+        "country": 1,
+        "name": "Sul",
+        "active": true
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$JmlShwDi4gAa$7ctE0wVewpljxqhaxK95Jd8wxfTyUZskjd/8eND2OWQ=",
+        "last_login": "2021-06-08T01:44:47.640Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@admin.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2021-06-08T01:44:37.956Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]
