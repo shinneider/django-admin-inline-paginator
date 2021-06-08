@@ -1,4 +1,5 @@
 {% load i18n static %}
+{% load paginated_inline %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'django_admin_inline_paginator/paginator.css' %}">
 
@@ -6,11 +7,11 @@
    {% with inline_admin_formset.formset.page as page_obj %}
     <p class="paginator">
       {% if page_obj.has_previous %}
-        <a href="?page={{ page_obj.previous_page_number }}">{% trans 'previous' %}</a>
+        <a href="?{% modify_pagination_path request.get_full_path inline_admin_formset.formset.pagination_key page_obj.previous_page_number %}">{% trans 'previous' %}</a>
       {% endif %}
 
       {% if page_obj.number|add:"-5" > 0 %}
-        <a class="btn-page page-available" href="?page=0">1</a>
+        <a class="btn-page page-available" href="?{% modify_pagination_path request.get_full_path inline_admin_formset.formset.pagination_key 0 %}">1</a>
       {% endif %}
 
       {% if page_obj.number|add:"-5" > 1 %}
@@ -22,7 +23,7 @@
           <span class="btn-page page-selected">{{ page_num }}</span>
         {% else %}
           {% if page_num > page_obj.number|add:"-5" and page_num < page_obj.number|add:"5" %}
-            <a class="btn-page page-available" href="?page={{ page_num }}">{{ page_num }}</a>
+            <a class="btn-page page-available" href="?{% modify_pagination_path request.get_full_path inline_admin_formset.formset.pagination_key page_num %}">{{ page_num }}</a>
           {% endif %}
         {% endif %}
       {% endfor %}
@@ -32,13 +33,13 @@
       {% endif %}
 
       {% if page_obj.number|add:"4" < page_obj.paginator.num_pages %}
-        <a class="btn-page page-available" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+        <a class="btn-page page-available" href="?{% modify_pagination_path request.get_full_path inline_admin_formset.formset.pagination_key page_obj.paginator.num_pages %}">{{ page_obj.paginator.num_pages }}</a>
       {% endif %}
 
       {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}">{% trans 'next' %}</a>
+        <a href="?{% modify_pagination_path request.get_full_path inline_admin_formset.formset.pagination_key page_obj.next_page_number %}">{% trans 'next' %}</a>
       {% endif %}
       <span class='btn-page results'>{{ page_obj.paginator.count }} Results</span>
     </p>
   {% endwith %}
-</div> 
+</div>
