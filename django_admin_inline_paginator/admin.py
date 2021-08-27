@@ -62,12 +62,14 @@ class TabularInlinePaginated(TabularInline):
     per_page = 20
     extra = 0
     can_delete = False
+    redirect_suffix = ''
 
     def get_formset(self, request, obj=None, **kwargs):
         formset_class = super().get_formset(request, obj, **kwargs)
 
         class PaginationFormSet(PaginationFormSetBase, formset_class):
             pagination_key = self.pagination_key
+            redirect_suffix = self.redirect_suffix
 
         PaginationFormSet.request = request
         PaginationFormSet.per_page = self.per_page
