@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
-from django import __version__ as django_version
+try:
+    import django
+except ImportError:
+    django = None
 
-if django_version < '3.2':  # pragma: no cover
+__version__ = '0.2.1'
+
+if django and django.VERSION < (3, 2):  # pragma: no cover
     default_app_config = 'django_admin_inline_paginator.apps.DjangoAdminInlinePaginatorConfig'
