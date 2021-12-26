@@ -75,6 +75,6 @@ pip install django-admin-inline-paginator
 ![image](https://user-images.githubusercontent.com/30196992/98023167-706ca880-1dfe-11eb-89fe-c056741f0d5b.png)
 
 # Need a Maintainer
- In the last months i don't have much time, health problemas,change of country and others problems.
- i have some surgeries for first part of 2022, and all of my current project don't use django-admin.
- ffor these reasons, i need a help for a project continuation!!
+ In the last months i don't have much time, health problemas, change of country and others problems.  
+ i have some surgeries for first part of 2022, and all of my current project don't use django-admin.  
+ for these reasons, i need a help for a project continuation!!
