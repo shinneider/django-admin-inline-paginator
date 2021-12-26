@@ -1,7 +1,7 @@
 import unittest
 from django.contrib.admin.views.main import ChangeList
 
-from django_admin_inline_paginator.admin import InlineChangeList, PaginationFormSetBase, PaginationInline
+from django_admin_inline_paginator.admin import InlineChangeList, PaginationFormSetBase
 
 
 class TestInlineChangeList(unittest.TestCase):
@@ -42,16 +42,4 @@ class TestPaginationFormSetBase(unittest.TestCase):
         pass
 
     def test_init(self):
-        pass
-
-
-class TestPaginationInline(unittest.TestCase):
-
-    def test_default_values(self):
-        self.assertEqual(PaginationInline.template, 'admin/edit_inline/tabular_paginated.html')
-        self.assertEqual(PaginationInline.per_page, 20)
-        self.assertEqual(PaginationInline.extra, 0)
-        self.assertEqual(PaginationInline.can_delete, False)
-
-    def test_get_formset(self):
         pass

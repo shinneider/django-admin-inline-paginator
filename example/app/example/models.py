@@ -8,7 +8,7 @@ class Country(Model):
     active = BooleanField(default=True)
 
     def __str__(self):
-        return f'{self.name}'
+        return self.name
 
     class Meta:
         verbose_name = 'Country'
@@ -21,7 +21,7 @@ class State(Model):
     active = BooleanField(default=True)
 
     def __str__(self):
-        return f'{self.name}'
+        return self.name
 
     class Meta:
         verbose_name = 'State'
@@ -34,7 +34,7 @@ class Region(Model):
     active = BooleanField(default=True)
 
     def __str__(self):
-        return f'{self.name}'
+        return self.name
 
     class Meta:
         verbose_name = 'Region'
