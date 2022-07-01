@@ -14,7 +14,8 @@ extras_require = {
         'pytest-pylint',
         'pytest',
         'pytest-cov',
-        'pytest-watch'
+        'pytest-watch',
+        'requests-mock'
     ]
 }
 

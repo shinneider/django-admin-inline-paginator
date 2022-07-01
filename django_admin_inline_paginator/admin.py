@@ -45,6 +45,8 @@ class PaginationFormSetBase:
     def mount_paginator(self, page_num: int = None):
         assert self.queryset is not None and self.request is not None
         page_num = self.get_page_num() if not page_num else page_num
+        if not getattr(self.queryset, 'ordered', None):
+            self.queryset = self.queryset.order_by('pk')
         self.paginator = Paginator(self.queryset, self.per_page)
         self.page = self.get_page(self.paginator, page_num)
         self.cl = InlineChangeList(self.request, page_num, self.paginator)
