@@ -21,6 +21,9 @@ pylint.txt
 .scannerwork
 
 # Others
-/venv/*
+/venv*/*
 /dist/*
 /django_admin_inline_paginator.egg-info/*
+
+# pyenv
+.python-version

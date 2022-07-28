@@ -1,6 +1,7 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.4.0] - 2022-07-28
 
 ## [0.3.0] - 2021-12-26
 Support for type hint and compatibility with django 4.0
