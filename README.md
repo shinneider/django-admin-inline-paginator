@@ -36,9 +36,10 @@ pip install django-admin-inline-paginator
 
     ```
     @register(YourModel)
-    class YourModelAdmin(ModelAdmin):
+    class YourModelAdmin(InlineModelPaginated, ModelAdmin):
         fields = (...)
         inlines = (ModelWithFKAdminInline, )
+        inline_pagination_keys = (ModelWithFKAdminInline.paginated_key, )
         model = YourModel
     ```
 
@@ -64,9 +65,10 @@ pip install django-admin-inline-paginator
     
     ```
     @register(YourModel)
-    class YourModelAdmin(ModelAdmin):
+    class YourModelAdmin(InlineModelPaginated, ModelAdmin):
         fields = (...)
         inlines = (ModelWithFKAdminInline, AnotherModelWithFKInline)
+        inline_pagination_keys = (ModelWithFKAdminInline.pagination_key, AnotherModelWithFKInline.pagination_key)
         model = YourModel
     ```
 
