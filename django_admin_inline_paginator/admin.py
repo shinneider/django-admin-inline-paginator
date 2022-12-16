@@ -4,6 +4,7 @@ from django.contrib.admin.views.main import ChangeList
 from django.core.paginator import Paginator
 from django.http import HttpRequest
 from django.db.models import QuerySet
+from django.utils.http import urlencode
 
 
 class InlineChangeList:
@@ -77,3 +78,17 @@ class TabularInlinePaginated(TabularInline):
         PaginationFormSet.request = request
         PaginationFormSet.per_page = self.per_page
         return PaginationFormSet
+
+
+class InlineModelPaginated:
+    inline_pagination_keys = ('page', )
+
+    def get_preserved_filters(self, request):
+        return '&'.join(filter(None, [
+            super().get_preserved_filters(request),
+            urlencode({
+                key: request.GET.get(key)
+                for key in request.GET.keys()
+                if key in self.inline_pagination_keys
+            })
+        ]))

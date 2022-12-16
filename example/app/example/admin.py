@@ -1,5 +1,5 @@
 from django.contrib.admin import ModelAdmin, register
-from django_admin_inline_paginator.admin import TabularInlinePaginated
+from django_admin_inline_paginator.admin import TabularInlinePaginated, InlineModelPaginated
 
 from .models import Country, Region, State
 
@@ -18,7 +18,8 @@ class RegionAdminInline(TabularInlinePaginated):
 
 
 @register(Country)
-class CountryAdmin(ModelAdmin):
+class CountryAdmin(InlineModelPaginated, ModelAdmin):
     fields = ('name', 'active')
     inlines = (StateAdminInline, RegionAdminInline)
+    inline_pagination_keys = (StateAdminInline.pagination_key, RegionAdminInline.pagination_key)
     model = Country
