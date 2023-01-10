@@ -1,0 +1,29 @@
+name: Run Code Quality Tools
+
+on:
+  workflow_call:
+
+jobs:
+  code-quality:
+    name: Code Quality
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.x"
+
+    - name: Install dependencies
+      run: |
+        pip install ."[dev]" ."[code-quality]"
+
+    - name: Run isort
+      run: isort ./django_admin_inline_paginator --check-only --diff
+
+    - name: Run xenon (Cyclomatic Complexity)
+      run: xenon --max-absolute B --max-modules A --max-average A ./django_admin_inline_paginator
+
+    - name: Run bandit
+      run: bandit -c profile-bandit.yml ./django_admin_inline_paginator -r -ll

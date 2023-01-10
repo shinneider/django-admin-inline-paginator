@@ -1,0 +1,9 @@
+exclude_dirs:
+  - "*/venv/*"
+  - "*/.venv/*"
+  - "*/env/*"
+  - "*/.env/*"
+  - "*/scripts/*"
+# skips:
+#     - 'B102'
+#     - 'B611'

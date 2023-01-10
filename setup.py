@@ -14,8 +14,14 @@ extras_require = {
         'pytest-pylint',
         'pytest',
         'pytest-cov',
-        'pytest-watch'
-    ]
+        'pytest-watch',
+        'tox'
+    ],
+    'code-quality': [
+        'isort',
+        'bandit',
+        'xenon',
+    ],
 }
 
 setup(

@@ -1,0 +1,28 @@
+name: Run Tests
+
+on:
+  workflow_call:
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.x"
+
+    - name: Install dependencies
+      run: |
+        pip install ."[dev]"
+
+    - name: Run tests
+      run: tox
+    
+    - uses: actions/upload-artifact@v2
+      with:
+        name: test-coverage
+        path: coverage.xml

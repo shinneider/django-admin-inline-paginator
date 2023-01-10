@@ -1,12 +1,6 @@
-[pytest]
-xfail_strict=true
-testpaths=tests/
-
-[pytest-watch]
-runner= pytest --failed-first --maxfail=1
-
 [MASTER]
 ignore = migrations,tests,manage.py
+django-settings-module=config.settings
 load-plugins = 
     pylint_common, 
     pylint_django

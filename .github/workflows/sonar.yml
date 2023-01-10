@@ -1,0 +1,26 @@
+name: Run SonarQube
+
+on:
+  workflow_call:
+    secrets:
+      SONAR_TOKEN:
+        required: true
+
+jobs:
+  sonar:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        # Disabling shallow clone is recommended for improving relevancy of reporting
+        fetch-depth: 0
+    
+    - uses: actions/download-artifact@v2
+      with:
+        name: test-coverage
+        
+    - name: SonarCloud Scan
+      uses: sonarsource/sonarcloud-github-action@master
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

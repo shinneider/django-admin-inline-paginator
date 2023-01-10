@@ -1,0 +1,33 @@
+name: Build Package and Upload to PyPI
+
+on:
+  workflow_call:
+    secrets:
+      PYPI_API_TOKEN:
+        required: true
+
+jobs:
+  build-publish:
+    name: Package to PyPI
+    needs: [sonar]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.x"
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install setuptools wheel twine
+
+    - name: Build a binary wheel and a source tarball
+      run: python3 setup.py sdist bdist_wheel
+
+    - name: Publish distribution 📦 to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        password: ${{ secrets.PYPI_API_TOKEN }}

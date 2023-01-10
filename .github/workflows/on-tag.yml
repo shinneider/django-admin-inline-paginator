@@ -1,0 +1,26 @@
+name: Build and publish to PyPI
+
+on:
+  push:
+    tags:
+      - '**'
+
+jobs:
+  code-quality:
+    uses: ./.github/workflows/code-quality.yml
+
+  tests:
+    uses: ./.github/workflows/tests.yml
+    needs: [code-quality]
+  
+  # sonar:
+  #   uses: ./.github/workflows/sonar.yml
+  #   needs: [tests]
+  #   secrets:
+  #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  build-publish:
+    uses: ./.github/workflows/pypi.yml
+    needs: [sonar]
+    secrets:
+      PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
