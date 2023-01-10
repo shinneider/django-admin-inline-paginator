@@ -1,4 +1,5 @@
 import unittest
+
 from django.contrib.admin.views.main import ChangeList
 
 from django_admin_inline_paginator.admin import InlineChangeList, PaginationFormSetBase
