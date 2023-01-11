@@ -9,7 +9,6 @@ on:
 jobs:
   build-publish:
     name: Package to PyPI
-    needs: [sonar]
     runs-on: ubuntu-latest
 
     steps:

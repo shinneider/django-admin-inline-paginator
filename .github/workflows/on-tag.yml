@@ -21,6 +21,6 @@ jobs:
 
   build-publish:
     uses: ./.github/workflows/pypi.yml
-    needs: [sonar]
+    needs: [tests]
     secrets:
       PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
