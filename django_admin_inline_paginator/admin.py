@@ -2,6 +2,7 @@ from typing import Optional
 
 from django.contrib.admin import TabularInline
 from django.contrib.admin.views.main import ChangeList
+from django.contrib.contenttypes.admin import GenericTabularInline
 from django.core.paginator import Paginator
 from django.db.models import QuerySet
 from django.http import HttpRequest
@@ -61,13 +62,11 @@ class PaginationFormSetBase:
         self.mount_paginator()
         self.mount_queryset()
 
-
-class TabularInlinePaginated(TabularInline):
+class InlinePaginated:
     pagination_key = 'page'
     template = 'admin/tabular_paginated.html'
     per_page = 20
     extra = 0
-    can_delete = False
 
     def get_formset(self, request, obj=None, **kwargs):
         formset_class = super().get_formset(request, obj, **kwargs)
@@ -78,3 +77,9 @@ class TabularInlinePaginated(TabularInline):
         PaginationFormSet.request = request
         PaginationFormSet.per_page = self.per_page
         return PaginationFormSet
+
+class TabularInlinePaginated(InlinePaginated, TabularInline):
+    pass
+
+class GenericTabularInlinePaginated(InlinePaginated, GenericTabularInline):
+    pass
