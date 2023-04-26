@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
-#!/usr/bin/env python
+import sys
 from io import open
 
 from setuptools import find_packages, setup
 
-from django_admin_inline_paginator import __version__
 
 extras_require = {
     'dev': [
@@ -24,9 +22,21 @@ extras_require = {
     ],
 }
 
+
+def get_version():
+    version = '0.0'
+    for arg in sys.argv:
+        if arg.startswith('--version'):
+            version = arg.split("=")[1]
+            sys.argv.remove(arg)
+            break
+
+    return version if version[0] != 'v' else version[1:]
+
+
 setup(
     name='django-admin-inline-paginator',
-    version=__version__,
+    version=get_version(),
     description='The "Django Admin Inline Paginator" is simple way to paginate your inline in django admin',
     long_description=open('README.md', encoding='utf-8').read(),
     long_description_content_type='text/markdown',

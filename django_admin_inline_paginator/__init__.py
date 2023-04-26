@@ -6,5 +6,3 @@ try:
         default_app_config = 'django_admin_inline_paginator.apps.DjangoAdminInlinePaginatorConfig'
 except ImportError:
     pass
-
-__version__ = '0.3.0'
